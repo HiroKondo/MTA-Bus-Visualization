@@ -17,7 +17,7 @@ Journey::Journey(){
     
     lineWid_ = 5;
     
-    areaLenKm_ = 47.8;
+    areaLenKm_ = 47.85;
     
     maxVel_ = 120;
     
@@ -87,17 +87,30 @@ void Journey::drawLine(int _from, int _to){
 int Journey::drawAllLines(){
     int errorCnt = 0;
     bool flag = true;
+    bool check = false;
     for(int i = 0; i < timePosList_.size()-1; i++){
-        ofVec2f prevPos = timeToPositionMap_[timePosList_[i]];
-        ofVec2f curPos = timeToPositionMap_[timePosList_[i+1]];
-        float dist = curPos.distance(prevPos);
         
         int timeDif = timePosList_[i+1] - timePosList_[i];
         if(timeDif > 240) continue;
         
+        ofVec2f prevPos = timeToPositionMap_[timePosList_[i]];
+        ofVec2f curPos = timeToPositionMap_[timePosList_[i+1]];
+        float dist = curPos.distance(prevPos);
         float distKm = dist*areaLenKm_/4000;
-        float vel = distKm * 3600 / (float)timeDif;
         
+        if(check){
+            ofVec2f prevLL = timeToLonLat_[timePosList_[i]];
+            ofVec2f curLL = timeToLonLat_[timePosList_[i+1]];
+            cout << "(x1, y1) = (" << prevPos.x << ", " << prevPos.y << "), "
+                 << "(x2, y2) = (" << curPos.x << ", " << curPos.y << "), "
+                 << "dist = " << distKm << " km " << endl;
+            cout << "(lon1, lat1) = (" << prevLL.x << ", " << prevLL.y << "), "
+            << "(lon2, lat2) = (" << curLL.x << ", " << curLL.y << "), " << endl;
+            check = false;
+        }
+        
+        
+        float vel = distKm * 3600 / (float)timeDif;
         
         if(vel > maxVel_) {
             if(flag) cout << journeyName_ << endl;
@@ -109,8 +122,9 @@ int Journey::drawAllLines(){
         float alpha = ofMap(timeDif, 120, 240, 100, 5);
         if(alpha < 5) alpha = 5;
         
-        int hue = (int)ofMap(distKm, 0, 2.5, 200, 10);
+        int hue = (int)ofMap(distKm, 0, 3, 200, 0);
         if(hue < 0) hue = 0;
+        
         
         int sat = 200;
         int val = 150;
@@ -125,8 +139,9 @@ int Journey::drawAllLines(){
 }
 
 
-void Journey::addJourneyData(int _timePos, ofVec2f _position){
+void Journey::addJourneyData(int _timePos, ofVec2f _position, ofVec2f _longLat){
     timeToPositionMap_[_timePos] = _position;
+    timeToLonLat_[_timePos] = _longLat;
     timePosList_.push_back(_timePos);
 }
 

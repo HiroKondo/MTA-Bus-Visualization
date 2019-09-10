@@ -26,7 +26,7 @@ class Journey{
         void drawLine(int, int);
         int drawAllLines();
     
-        void addJourneyData(int, ofVec2f);
+        void addJourneyData(int, ofVec2f, ofVec2f);
         void setJourneyName(string);
     
 
@@ -34,6 +34,8 @@ class Journey{
         string journeyName_; // The name of the Journey
     
         map<int, ofVec2f> timeToPositionMap_;     // To search the position from the time
+    
+        map<int, ofVec2f> timeToLonLat_;
     
         vector<int> timePosList_;
     
