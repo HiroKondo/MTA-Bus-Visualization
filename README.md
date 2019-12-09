@@ -7,8 +7,9 @@ This simple, beautiful visualization gives us a way to understand the pattern of
 This project is longlisted for [Information is Beautiful Awards 2019](https://www.informationisbeautifulawards.com/showcase/3872-new-york-bus-trips-on-february-12-2019)
 
 <p align="center">
-<img src="https://github.com/HiroKondo/MTA-Bus-Visualization/blob/master/LineViz/openFrameworks/bin/data/image/Line_Visualization_20190909_Final_revised.png" height="500px">
+<img src="https://github.com/HiroKondo/MTA-Bus-Visualization/blob/master/openFrameworks/bin/data/image/Line_Visualization_20190909_Final_revised.png" height="500px">
 </p>
+
 
 ## How to use
 
@@ -16,7 +17,7 @@ This project is longlisted for [Information is Beautiful Awards 2019](https://ww
 Please download the version 0.10.1 of openFrameworks.
 
 ### Get the data from MTA website
-I used the data from MTA website (http://bustime.mta.info/wiki/Developers/Index).
+I used the data from [MTA website](http://bustime.mta.info/wiki/Developers/Index).
 Please get a key from the website and download the xml files of the bus data.
 
 ### Data Wrangling
