@@ -13,15 +13,15 @@ This project is longlisted for [Information is Beautiful Awards 2019](https://ww
 
 ## How to use
 
-### Dowload openFrameworks
+### Download openFrameworks
 Please download the version 0.10.1 of openFrameworks.
 
-### Get the data from MTA website
+### Get the data from the MTA website
 I used the data from [MTA website](http://bustime.mta.info/wiki/Developers/Index).
-Please get a key from the website and download the xml files of the bus data.
+Please get a key from the website and download the XML files of the bus data.
 
 ### Data Wrangling
-Put all of the xml files in the folder, "python/data/" and then run all of the codes in "the MTA_Bus_Trip_Line_Viz_Preparation.ipynb".
+Put all of the XML files in the folder, "python/data/" and then run all of the codes in "the MTA_Bus_Trip_Line_Viz_Preparation.ipynb".
 
 ### Copy data to openFrameworks
 Put the output csv file to the folder {your oF project-name/bin/data/}. 
